@@ -18,7 +18,12 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     {
-                      loader: MiniCssExtractPlugin.loader
+                      loader: MiniCssExtractPlugin.loader,
+                      options: {
+                        // you can specify a publicPath here
+                        // by default it use publicPath in webpackOptions.output
+                        publicPath: '../'
+                      }
                     },
                     {
                       loader: 'css-loader',
@@ -27,10 +32,13 @@ module.exports = {
                       }
                     },
                     {
+                        loader: 'postcss-loader'
+                    },
+                    {
                       loader: 'sass-loader',
                       options: {
                         sourceMap: true,
-                        includePaths: ["src/styles/"]
+                        includePaths: [path.resolve("./src/sass")]
                       }
                     },
                   ],
