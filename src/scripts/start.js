@@ -1,3 +1,5 @@
+import '../sass/start.scss';
+
 
 function test () {
     return 'test';
