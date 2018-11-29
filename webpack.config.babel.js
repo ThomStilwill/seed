@@ -1,4 +1,3 @@
-import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
@@ -7,10 +6,19 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
+                }
+            },
+            {
+                test: /\.scss$/,
+                use: {
+                    loader: 'sass-loader',
+                    options: {
+                        includePaths: ["src/sass"]
+                    }
                 }
             }
         ]       
@@ -25,6 +33,10 @@ module.exports = {
         path: path.resolve(__dirname,'dist')
     },
     plugins: [
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname,"src/index.html"),
+            file: "index.html",
+            inject: "body"
+          })
     ]
 }
