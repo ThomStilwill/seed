@@ -1,12 +1,6 @@
-import '../sass/start.scss';
+import  * as header  from './header'
 
+console.log('start');
 
-function test () {
-    return 'test';
-}
+header.load();
 
-module.exports = {
-    test: test
-}
-
-console.log('started');
