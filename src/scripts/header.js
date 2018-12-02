@@ -1,6 +1,6 @@
 import html from './header.html';
 
-const elementName = 'header';
+const elementName = 'tcs-header';
 
  function insertTemplate(){
     var query = document.querySelector(elementName);
